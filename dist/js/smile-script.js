@@ -7,7 +7,7 @@ window.onload = function(){
   let target = null;
 
   function isOS() {
-    return navigator.userAgent.match(/ipad|iphone/);
+    return navigator.userAgent.match(/ipad|iphone/i);
   }
 
   if (isOS()) {
