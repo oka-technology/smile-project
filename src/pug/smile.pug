@@ -7,9 +7,19 @@ html(lang="ja-JP")
     title ‪♪(๑ᴖ◡ᴖ๑)♪
   body
     .wrapper
-      article
-        h1 ‪♪(๑ᴖ◡ᴖ๑)♪
-        textarea.input-text
-        button.conversion-button#Add-face-button(type="button") ‪♪(๑ᴖ◡ᴖ๑)♪変換‪♪(๑ᴖ◡ᴖ๑)‪♪
-        textarea.output-text
-        button.tweet-button(type="button") ‪♪(๑ᴖ◡ᴖ๑)♪ツイートする‪♪(๑ᴖ◡ᴖ๑)♪
+
+      main
+        article.main-article
+          h1.page-title ‪♪(๑ᴖ◡ᴖ๑)♪
+          textarea.input-textarea
+          button.conversion-button#Conversion-button(type="button") ‪♪(๑ᴖ◡ᴖ๑)♪変換‪♪(๑ᴖ◡ᴖ๑)‪♪
+          textarea.output-textarea(readonly)
+          a.tweet-button(href="") ‪♪(๑ᴖ◡ᴖ๑)♪ツイートする‪♪(๑ᴖ◡ᴖ๑)♪
+      footer.footer
+        .footer__contents
+          dl.author
+            dt 作った人
+            dd
+              a.author__twitter-link(href="https://twitter.com/oka_technology") おか
+          p.copyright
+            small &copy; 2019 OKA TECHNOLOGY

@@ -2,3 +2,113 @@
 @import "mixin.scss";
 @import "variable.scss";
 
+body{
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+.author{
+  color: #fff;
+  display: flex;
+  font-size: 1.4rem;
+  justify-content: center;
+
+  &__twitter-link{
+    color: #fff;
+
+    &::before{
+      content: ":"
+    }
+  }
+}
+
+.conversion-button{
+  background-color: #fff;
+  border: 1px solid #000;
+  display: block;
+  font-size: 1.6rem;
+  height: 5.0rem;
+  margin: 3.0rem auto 0;
+  width: 40.0rem;
+
+  &:hover{
+    font-size: 2.0rem;
+  }
+
+  @include sp{
+    margin-top: 1.5rem;
+    width: 100%;
+  }
+}
+
+.copyright{
+  color: #fff;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.footer{
+  align-items: center;
+  background-color: #54c3f1;
+  display: flex;
+  height: $footer-height;
+  justify-content: center;
+}
+
+.input-textarea{
+  border: 1px solid #000;
+  display: block;
+  flex: 1;
+  font-size: 1.6rem;
+  margin-top: 3.0rem;
+  padding: 0.8rem;
+  resize: none;
+  width: 100%;
+
+  @include sp{
+    margin-top: 1.5rem;
+  }
+}
+
+.main-article{
+  padding: 3.0rem 0;
+  height: calc(100vh - #{$footer-height});
+  @include strech-box;
+
+  @include pc{
+    margin: 0 auto;
+    width: 80.0rem;
+  }
+
+  @include tb{
+    margin: 0 2.0rem;
+  }
+
+  @include sp{
+    padding: 1.5rem 0;
+    margin: 0 1.0rem;
+  }
+}
+
+.output-textarea{
+  @extend .input-textarea;
+}
+
+.page-title{
+  font-size: 4.0em;
+  text-align: center;
+}
+
+.tweet-button{
+  @extend .conversion-button;
+  align-items: center;
+  background-color: #00acee;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
