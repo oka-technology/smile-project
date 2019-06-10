@@ -10,11 +10,12 @@ window.onload = function(){
 
     const in_href_text = encodeURI(output_text.value.replace(/\n/g, " ")).replace(/%E2%80%AA/g, ""); //ツイートできる形にする
     tweet_button.href = "https://twitter.com/intent/tweet?text=" + in_href_text;
+    copy_button.textContent = "‪♪(๑ᴖ◡ᴖ๑)♪コピー♪(๑ᴖ◡ᴖ๑)♪";
   }
 
   copy_button.onclick = function(){
     output_text.select();
     document.execCommand("copy");
-    alert("コピーしました‪♪(๑ᴖ◡ᴖ๑)♪");
+    copy_button.textContent = "‪♪(๑ᴖ◡ᴖ๑)♪コピーしたよ‪♪(๑ᴖ◡ᴖ๑)♪";
   }
 }
