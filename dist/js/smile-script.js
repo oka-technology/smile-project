@@ -6,6 +6,7 @@ window.onload = function(){
     const output_text = document.getElementById("Output-textarea");
     output_text.textContent = input_text.value.replace(/\n/g, "‪♪(๑ᴖ◡ᴖ๑)♪\n") + "‪♪(๑ᴖ◡ᴖ๑)♪";
     console.log(output_text.value);
-    tweet_button.href = "https://twitter.com/intent/tweet?text=" + output_text.value.replace(/\n/g, " ");
+    const in_href_text = encodeURI(output_text.value.replace(/\n/g, " ")).replace("%E2%80%AA", ""); //ツイートできる形にする
+    tweet_button.href = "https://twitter.com/intent/tweet?text=" + in_href_text;
   }
 }
