@@ -4,6 +4,15 @@ window.onload = function(){
   const copy_button = document.getElementById("Copy-to-clipboard-button");
   const input_text = document.getElementById("Input-textarea");
   const output_text = document.getElementById("Output-textarea");
+  let target = null;
+
+  function isOS() {
+    return navigator.userAgent.match(/ipad|iphone/);
+  }
+
+  if (isOS()) {
+    copy_button.parentNode.removeChild(copy_button);
+  }
 
   conversion_button.onclick = function(){
     output_text.textContent = input_text.value.replace(/\n/g, "‪♪(๑ᴖ◡ᴖ๑)♪\n") + "‪♪(๑ᴖ◡ᴖ๑)♪";
