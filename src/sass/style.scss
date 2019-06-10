@@ -25,21 +25,30 @@ html{
   }
 }
 
+.button-container{
+  display: flex;
+  @media screen and (max-width: 780px){
+    flex-direction: column;
+  }
+}
+
 .conversion-button{
   background-color: #fff;
   border: 1px solid #000;
   border-radius: 999rem;
   display: block;
+  font-family: inherit;
   font-size: 1.6rem;
   height: 5.0rem;
   margin: 3.0rem auto 0;
-  width: 40.0rem;
+  width: 35.0rem;
 
   &:hover{
-    font-size: 2.0rem;
+    font-size: 1.8rem;
   }
 
   @include sp{
+    height: 4.0rem;
     margin-top: 1.5rem;
     width: 100%;
   }
@@ -50,6 +59,10 @@ html{
   font-size: 1.2rem;
   margin-top: 0.5rem;
   text-align: center;
+}
+
+.copy-to-clipboard-button{
+  @extend .conversion-button;
 }
 
 .footer{
@@ -64,6 +77,7 @@ html{
   border: 1px solid #000;
   display: block;
   flex: 1;
+  font-family: inherit;
   font-size: 1.6rem;
   margin-top: 3.0rem;
   padding: 0.8rem;
