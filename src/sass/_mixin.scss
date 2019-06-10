@@ -1,0 +1,17 @@
+@mixin pc {
+  @media screen and (min-width: $breakpoint-tb + 1) {
+    @content;
+  }
+}
+
+@mixin tb {
+  @media screen and (max-width: $breakpoint-tb) and (min-width: $breakpoint-sp + 1) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media screen and (max-width: $breakpoint-sp) {
+    @content;
+  }
+}
