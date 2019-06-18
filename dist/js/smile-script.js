@@ -8,7 +8,8 @@ window.onload = function(){
   const main_article = document.getElementsByClassName("main-article");
   let target = null;
 
-  window.onresize = windowLoad();
+  windowLoad();
+  window.onresize = windowLoad;
 
   function windowLoad() {
     main_article[0].style.height = window.innerHeight - footer[0].clientHeight + 'px';
