@@ -90,6 +90,7 @@ html{
 }
 
 .main-article{
+  min-height: 50.0rem;
   padding: 3.0rem 0;
   @include strech-box;
 
