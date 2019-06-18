@@ -268,7 +268,6 @@ html {
 
 .main-article {
   padding: 3.0rem 0;
-  height: calc(100vh - 5rem);
   display: flex;
   flex-direction: column;
 }
@@ -300,6 +299,12 @@ html {
 .page-title {
   font-size: 4.0em;
   text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+  .page-title {
+    font-size: 3.0rem;
+  }
 }
 
 .tweet-button {

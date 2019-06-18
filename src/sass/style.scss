@@ -91,7 +91,6 @@ html{
 
 .main-article{
   padding: 3.0rem 0;
-  height: calc(100vh - #{$footer-height});
   @include strech-box;
 
   @include pc{
@@ -116,6 +115,10 @@ html{
 .page-title{
   font-size: 4.0em;
   text-align: center;
+
+  @include sp{
+    font-size: 3.0rem;
+  }
 }
 
 .tweet-button{
