@@ -8,8 +8,11 @@ window.onload = function(){
   const main_article = document.getElementsByClassName("main-article");
   let target = null;
 
-  console.log(window.innerHeight);
-  main_article[0].style.height = window.innerHeight - footer[0].clientHeight + 'px';
+  window.onresize = windowLoad();
+
+  function windowLoad() {
+    main_article[0].style.height = window.innerHeight - footer[0].clientHeight + 'px';
+  }
   
   function isOS() {
     return navigator.userAgent.match(/ipad|iphone/i);
