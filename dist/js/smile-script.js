@@ -4,12 +4,12 @@ window.addEventListener("DOMContentLoaded", function () {
   const copy_button = document.getElementById("Copy-to-clipboard-button");
   const input_text = document.getElementById("Input-textarea");
   const output_text = document.getElementById("Output-textarea");
-  const footer = document.getElementsByClassName("footer");
   const main_article = document.getElementsByClassName("main-article");
+  const footerHeight = 50;
   let target = null;
 
   function windowLoad() {
-    main_article[0].style.height = window.innerHeight - footer[0].clientHeight + 'px';
+    main_article[0].style.height = window.innerHeight - footerHeight + 'px';
   }
   windowLoad();
   window.onresize = windowLoad;
