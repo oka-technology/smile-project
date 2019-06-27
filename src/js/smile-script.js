@@ -4,6 +4,15 @@ window.addEventListener("DOMContentLoaded", () => {
   const copyButton = document.querySelector("#Copy-to-clipboard-button");
   const inputText = document.querySelector("#Input-textarea");
   const outputText = document.querySelector("#Output-textarea");
+  const mainArticle = document.querySelector("#Main-article");
+  const footerHeight = 50;
+
+  function windowLoad() {
+    mainArticle.style.height = window.innerHeight - footerHeight + 'px';
+  }
+
+  windowLoad();
+  window.addEventListener("resize", () => windowLoad());
 
   function isOS() {
     return navigator.userAgent.match(/ipad|iphone/i);
