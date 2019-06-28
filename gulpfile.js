@@ -10,7 +10,9 @@ gulp.task('sass', () => (
 
 gulp.task('pug', () => (
   gulp.src(['src/pug/**/*.pug', '!src/pug/**/_*.pug'])
-    .pipe(pug({}))
+    .pipe(pug({
+      pretty: true
+    }))
     .pipe(gulp.dest('./dist'))
 ));
 
