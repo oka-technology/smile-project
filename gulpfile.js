@@ -15,14 +15,17 @@ gulp.task('pug', () => (
 ));
 
 gulp.task('static', () => (
-  gulp.src(['src/js/**/*', 'src/img/**/*'], { base: 'src' })
+  gulp.src(['src/js/**/*', 'src/img/**/*'], {base: 'src'})
+    .pipe(gulp.dest('dist')),
+  gulp.src(['src/html/**/*'])
     .pipe(gulp.dest('dist'))
 ));
 
 gulp.task('watch', async () => {
   gulp.watch('src/sass/**/*.scss', gulp.task('sass'));
   gulp.watch('src/pug/**/*.pug', gulp.task('pug'));
-  gulp.watch(['src/js/**/*', 'src/img/**/*'], gulp.task('static'));
+  gulp.watch(['src/js/**/*', 'src/img/**/*', 'src/html/**/*'
+  ], gulp.task('static'));
 });
 
 gulp.task('default', gulp.series(gulp.parallel('sass', 'pug', 'static'), 'watch'));
