@@ -5,12 +5,13 @@ window.addEventListener("DOMContentLoaded", () => {
   const inputText = document.querySelector<HTMLTextAreaElement>("#Input-textarea");
   const outputText = document.querySelector<HTMLTextAreaElement>("#Output-textarea");
   const mainArticle = document.querySelector<HTMLElement>("#Main-article");
-  const footerHeight: number = 50;
-  const copyBtnTextDefault: string = "‪♪(๑ᴖ◡ᴖ๑)♪コピー♪(๑ᴖ◡ᴖ๑)♪";
-  const copyBtnTextAfter: string = "‪♪(๑ᴖ◡ᴖ๑)♪コピーしたよ‪♪(๑ᴖ◡ᴖ๑)♪";
+  
+  const FOOTER_HEIGHT: number = 50;
+  const BUTTON_TEXT_BEFORE_COPY: string = "‪♪(๑ᴖ◡ᴖ๑)♪コピー♪(๑ᴖ◡ᴖ๑)♪";
+  const BUTTON_TEXT_AFTER_COPY: string = "‪♪(๑ᴖ◡ᴖ๑)♪コピーしたよ‪♪(๑ᴖ◡ᴖ๑)♪";
 
   function windowLoad() {
-    mainArticle.style.height = window.innerHeight - footerHeight + 'px';
+    mainArticle.style.height = window.innerHeight - FOOTER_HEIGHT + 'px';
   }
 
   windowLoad();
@@ -28,12 +29,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const in_href_text = encodeURI(outputText.value.replace(/\n/g, " ")).replace(/%E2%80%AA/g, "");
     tweetButton.href = "https://twitter.com/intent/tweet?text=" + in_href_text;
-    copyButton.textContent = copyBtnTextDefault;
+    copyButton.textContent = BUTTON_TEXT_BEFORE_COPY;
   });
 
   copyButton.addEventListener("click", () => {
     outputText.select();
     document.execCommand("copy");
-    copyButton.textContent = copyBtnTextAfter;
+    copyButton.textContent = BUTTON_TEXT_AFTER_COPY;
   });
 });
