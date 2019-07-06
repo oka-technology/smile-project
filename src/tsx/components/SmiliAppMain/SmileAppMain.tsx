@@ -9,15 +9,19 @@ import TweetButton from './TweetButton';
 
 const FOOTER_HEIGHT: number = 50;
 
-function determineHeight(): string {
-  return String(window.innerHeight - FOOTER_HEIGHT) + 'px';
+function determineHeight(): number {
+  return window.innerHeight - FOOTER_HEIGHT;
 };
 
 function SmileAppMain(props: any) {
   const [height, setHeight] = useState(determineHeight());
 
   useEffect(() => {
-    window.addEventListener("resize", () => {setHeight(determineHeight())});  
+    const onResize = () => setHeight(determineHeight());
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("resize", onResize);
+    }
   }, []);
   
   return (
