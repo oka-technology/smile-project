@@ -5,7 +5,11 @@
     "sourceMap": true,
     "rootDir": ".",
     "outDir": "dist/js",
-    "jsx": "react"
+    "jsx": "react",
+    "typeRoots": [
+      "node_modules/@types",
+      "src/types",
+    ]
   },
   "exclude": [
     "node_modules",
