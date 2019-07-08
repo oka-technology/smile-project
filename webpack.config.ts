@@ -2,17 +2,15 @@ import * as path from 'path';
 import { Configuration } from 'webpack';
 import * as MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-const src  = path.resolve(__dirname, 'src/tsx');
-const dist = path.resolve(__dirname, 'dist');
-
-const __DEV__ = process.env.NODE_ENV !== 'production';
+const __DEV__: boolean = process.env.NODE_ENV !== 'production';
+const sassFilePath:string = path.resolve(__dirname, 'src/sass/_global-imports.scss');
 
 export default (): Configuration => ({
   mode: 'development',
-  entry: src + '/index.tsx',
+  entry: path.resolve(__dirname, 'src/tsx/index.tsx'),
 
   output: {
-    path: dist,
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
 
@@ -45,7 +43,7 @@ export default (): Configuration => ({
         ],
       },
       {
-        test: /\.scss$/i,
+        test: /\.s?css$/i,
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -53,15 +51,21 @@ export default (): Configuration => ({
             options: {
               modules: {
                 mode: 'local',
-                localIdentName: __DEV__ ? '[path]___[name]__[local]___[hash:base64:5]' : '[hash:base64:16]',
+                localIdentName: __DEV__ ? '[path]__[local]___[hash:base64:5]' : '[hash:base64:16]',
               },
               sourceMap: __DEV__,
               importLoaders: 1,
             },
           },
-          'sass-loader',
+          {
+            loader: 'sass-loader',
+            options:{
+              data: '@import "global-imports";',
+              includePaths: [path.resolve(__dirname, 'src/sass/')],
+            },
+          },
         ],
-      }
+      },
     ],
   },
 
