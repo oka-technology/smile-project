@@ -1,3 +1,5 @@
+@import 'variable';
+
 @mixin pc {
   @media screen and (min-width: $breakpoint-tb + 1) {
     @content;
