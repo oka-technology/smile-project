@@ -1,0 +1,19 @@
+.normal{
+  border: 1px solid #000;
+  display: block;
+  flex: 1;
+  font-family: inherit;
+  font-size: 1.6rem;
+  margin-top: 3.0rem;
+  padding: 0.8rem;
+  resize: none;
+  width: 100%;
+
+  @include tb {
+    margin-top: 2.0rem;
+  }
+
+  @include sp {
+    margin-top: 1.0rem;
+  }
+}

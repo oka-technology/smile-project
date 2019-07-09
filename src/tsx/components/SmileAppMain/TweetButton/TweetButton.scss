@@ -1,0 +1,9 @@
+.normal{
+  composes: normal from '../ConvesiontButton/ConversionButton.scss';
+  align-items: center;
+  background-color: #00acee;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}

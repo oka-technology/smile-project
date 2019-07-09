@@ -1,8 +1,9 @@
 import * as React from 'react';
+import * as styles from './CopyButton.scss';
 
 function CopyButton() {
   return (
-    <button className="copy-to-clipboard-button" id="Copy-to-clipboard-button" type="button">‪♪(๑ᴖ◡ᴖ๑)♪コピー‪♪(๑ᴖ◡ᴖ๑)♪</button>
+    <button className={styles.normal} type="button">‪♪(๑ᴖ◡ᴖ๑)♪コピー‪♪(๑ᴖ◡ᴖ๑)♪</button>
   )
 }
 

@@ -1,11 +1,15 @@
 import '../html/index.html';
 
+import 'sanitize.css';
+import 'sanitize.css/typography.css';
+import 'sanitize.css/forms.css';
+import './index.scss';
+
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
-import * as styles from './index.scss';
 
 import Footer from './components/Footer';
-import SmileAppMain from './components/SmiliAppMain';
+import SmileAppMain from './components/SmileAppMain';
 
 function App(){
   return (

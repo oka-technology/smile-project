@@ -6,6 +6,7 @@ import InputTextArea from './InputTextArea';
 import OutputTextarea from './OutputTextArea';
 import CopyButton from './CopyButton';
 import TweetButton from './TweetButton';
+import * as styles from './SmileAppMain.scss';
 
 const FOOTER_HEIGHT: number = 50;
 
@@ -25,13 +26,13 @@ function SmileAppMain(props: any) {
   }, []);
   
   return (
-    <main className="main">
-      <article className="main-article" style={{height}}>
-        <h1 className="page-title">‪♪(๑ᴖ◡ᴖ๑)♪</h1>
+    <main>
+      <article className={styles.mainArticle} style={{height}}>
+        <h1 className={styles.pageTitle}>‪♪(๑ᴖ◡ᴖ๑)♪</h1>
         <InputTextArea />
         <ConversionButton />
         <OutputTextarea />
-        <div className="button-container">
+        <div className={styles.buttonContainer}>
           <CopyButton />
           <TweetButton />
         </div>

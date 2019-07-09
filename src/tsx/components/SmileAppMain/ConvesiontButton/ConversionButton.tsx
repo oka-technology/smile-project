@@ -3,7 +3,7 @@ import * as styles from './ConversionButton.scss';
 
 function ConversionButton() {
   return(
-    <button className={styles.button} id="Conversion-button" type="button">‪♪(๑ᴖ◡ᴖ๑)♪変換‪♪(๑ᴖ◡ᴖ๑)‪♪</button>
+    <button className={styles.normal} id="Conversion-button" type="button">‪♪(๑ᴖ◡ᴖ๑)♪変換‪♪(๑ᴖ◡ᴖ๑)‪♪</button>
   )
 }
 

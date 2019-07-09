@@ -1,8 +1,9 @@
 import * as React from 'react';
+import * as styles from './InputTextArea.scss';
 
 function InputTextarea() {
   return(
-    <textarea className="input-textarea" id="Input-textarea" placeholder="ここに文字を入れてね‪♪(๑ᴖ◡ᴖ๑)♪"></textarea>
+    <textarea className={styles.normal} placeholder="ここに文字を入れてね‪♪(๑ᴖ◡ᴖ๑)♪"></textarea>
   )
 }
 

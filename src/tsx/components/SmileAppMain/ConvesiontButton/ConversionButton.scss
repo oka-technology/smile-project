@@ -1,4 +1,4 @@
-.button{
+.normal{
   background-color: #fff;
   border: 1px solid #000;
   border-radius: 999rem;
@@ -8,4 +8,29 @@
   height: 5.0rem;
   margin: 3.0rem auto 0;
   width: 35.0rem;
+
+  @include pc {
+    &:hover {
+      font-size: 1.8rem;
+    }
+  }
+
+  @include tb {
+    height: 4.5rem;
+    margin-top: 2.0rem;
+    width: 30.0rem;
+    &:active {
+      font-size: 1.8rem;
+    }
+  }
+
+  @include sp {
+    height: 4.0rem;
+    margin-top: 1.0rem;
+    width: 100%;
+
+    &:active{
+      font-size: 1.8rem;
+    }
+  }
 }
