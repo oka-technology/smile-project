@@ -3,7 +3,6 @@ import { Configuration } from 'webpack';
 import * as MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const __DEV__: boolean = process.env.NODE_ENV !== 'production';
-const sassFilePath:string = path.resolve(__dirname, 'src/sass/_global-imports.scss');
 
 export default (): Configuration => ({
   mode: 'development',
