@@ -30,16 +30,17 @@
 
 .pageTitle{
   font-size: 4.0rem;
-  height: 4.0rem;
+  height: 6.0rem;
   margin: 0;
   text-align: center;
 
   @include tb{
     font-size: 3.5rem;
+    height: 5.0rem;
   }
 
   @include sp{
     font-size: 3.0rem;
-
+    height: 4.0rem;
   }
 }
