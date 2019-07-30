@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 
 import ConversionButton from './ConvesiontButton';
 import InputTextArea from './InputTextArea';
-import OutputTextarea from './OutputTextArea';
+import OutputTextArea from './OutputTextArea';
 import CopyButton from './CopyButton';
 import TweetButton from './TweetButton';
 
@@ -19,10 +19,11 @@ const isAppleiOS = (): boolean => {
   return /ipad|iphone/i.test(navigator.userAgent);
 }
 
-function SmileAppMain(props: any) {
-  const [height, setHeight] = useState(determineHeight());
-  const [inputText,setInputText] = useState('');
-
+function SmileAppMain() {
+  const [height, setHeight] = useState<number>(determineHeight());
+  const [inputtedText,setInputtedText] = useState<string>('');
+  const [outputText, setOutputText] = useState<string>('');
+  
   useEffect(() => {
     const onResize = () => setHeight(determineHeight());
     window.addEventListener("resize", onResize);
@@ -30,22 +31,25 @@ function SmileAppMain(props: any) {
       window.removeEventListener("resize", onResize);
     }
   }, []);
+  
+  const onSetInputtedText = (s: string): void => {
+    setInputtedText(s);
+  }
 
-  const convert = (): void => {
-    console.log('test');
-    
+  const onSetOutputText = (s: string): void => {
+    setOutputText(s);
   }
   
   return (
     <main>
       <article className={styles.mainArticle} style={{height}}>
         <h1 className={styles.pageTitle}>‪♪(๑ᴖ◡ᴖ๑)♪</h1>
-        <InputTextArea />
-        <ConversionButton onConvert={convert}/>
-        <OutputTextarea />
+        <InputTextArea onSetInputtedText={onSetInputtedText} inputtedText={inputtedText} />
+        <ConversionButton onSetOutputText={onSetOutputText} inputtedText={inputtedText} />
+        <OutputTextArea outputText={outputText} />
         <div className={styles.buttonContainer}>
           {isAppleiOS()? null : <CopyButton />}
-          <TweetButton />
+          <TweetButton tweetText={outputText} />
         </div>
       </article>
     </main>
