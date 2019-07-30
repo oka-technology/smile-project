@@ -23,7 +23,8 @@ function SmileAppMain() {
   const [height, setHeight] = useState<number>(determineHeight());
   const [inputtedText,setInputtedText] = useState<string>('');
   const [outputText, setOutputText] = useState<string>('');
-  
+  const [refOfOutputTextarea, setRefOfOutputTextarea] = useState<React.MutableRefObject<HTMLTextAreaElement>>();
+
   useEffect(() => {
     const onResize = () => setHeight(determineHeight());
     window.addEventListener("resize", onResize);
@@ -39,6 +40,10 @@ function SmileAppMain() {
   const onSetOutputText = (s: string): void => {
     setOutputText(s);
   }
+
+  const onSetRefOfOutputTextarea = (ref: React.MutableRefObject<HTMLTextAreaElement>): void => {
+    setRefOfOutputTextarea(ref);
+  }
   
   return (
     <main>
@@ -46,9 +51,9 @@ function SmileAppMain() {
         <h1 className={styles.pageTitle}>‪♪(๑ᴖ◡ᴖ๑)♪</h1>
         <InputTextArea onSetInputtedText={onSetInputtedText} inputtedText={inputtedText} />
         <ConversionButton onSetOutputText={onSetOutputText} inputtedText={inputtedText} />
-        <OutputTextArea outputText={outputText} />
+        <OutputTextArea outputText={outputText} onsetRefOfOutputTextarea={onSetRefOfOutputTextarea} />
         <div className={styles.buttonContainer}>
-          {isAppleiOS()? null : <CopyButton />}
+          {isAppleiOS()? null : <CopyButton outputText={outputText} areaToSelect={refOfOutputTextarea} />}
           <TweetButton tweetText={outputText} />
         </div>
       </article>

@@ -5,6 +5,7 @@ type InputTextAreaProps = {
 
 type OutputTextAreaProps = {
   outputText: string;
+  onsetRefOfOutputTextarea: (ref: React.MutableRefObject<HTMLTextAreaElement>) => void;
 }
 
 type ConversionButtonProps = {
@@ -13,5 +14,10 @@ type ConversionButtonProps = {
 }
 
 type TweetButtonProps = {
-  tweetText: string
+  tweetText: string;
+}
+
+type CopyButtonProps = {
+  outputText: string;
+  areaToSelect: React.MutableRefObject<HTMLTextAreaElement>;
 }
