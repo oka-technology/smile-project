@@ -13,6 +13,7 @@ function OutputTextarea(props: OutputTextAreaProps) {
     placeholder="ここに出力されるよ‪♪(๑ᴖ◡ᴖ๑)♪"
     value={props.outputText}
     ref={refOftextarea}
+    contentEditable={true}
     readOnly={true}
     ></textarea>
   )

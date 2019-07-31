@@ -53,7 +53,7 @@ function SmileAppMain() {
         <ConversionButton onSetOutputText={onSetOutputText} inputtedText={inputtedText} />
         <OutputTextArea outputText={outputText} onsetRefOfOutputTextarea={onSetRefOfOutputTextarea} />
         <div className={styles.buttonContainer}>
-          {isAppleiOS()? null : <CopyButton outputText={outputText} areaToSelect={refOfOutputTextarea} />}
+          <CopyButton outputText={outputText} areaToSelect={refOfOutputTextarea} isAppleiOS={isAppleiOS} />
           <TweetButton tweetText={outputText} />
         </div>
       </article>
