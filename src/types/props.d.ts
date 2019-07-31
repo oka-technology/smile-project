@@ -20,5 +20,4 @@ type TweetButtonProps = {
 type CopyButtonProps = {
   outputText: string;
   areaToSelect: React.MutableRefObject<HTMLTextAreaElement>;
-  isAppleiOS: () => boolean;
 }

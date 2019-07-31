@@ -15,10 +15,6 @@ const determineHeight = (): number => {
   return window.innerHeight - FOOTER_HEIGHT;
 };
 
-const isAppleiOS = (): boolean => {
-  return /ipad|iphone/i.test(navigator.userAgent);
-}
-
 function SmileAppMain() {
   const [height, setHeight] = useState<number>(determineHeight());
   const [inputtedText,setInputtedText] = useState<string>('');
@@ -53,7 +49,7 @@ function SmileAppMain() {
         <ConversionButton onSetOutputText={onSetOutputText} inputtedText={inputtedText} />
         <OutputTextArea outputText={outputText} onsetRefOfOutputTextarea={onSetRefOfOutputTextarea} />
         <div className={styles.buttonContainer}>
-          <CopyButton outputText={outputText} areaToSelect={refOfOutputTextarea} isAppleiOS={isAppleiOS} />
+          <CopyButton outputText={outputText} areaToSelect={refOfOutputTextarea} />
           <TweetButton tweetText={outputText} />
         </div>
       </article>
