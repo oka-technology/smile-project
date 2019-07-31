@@ -21,3 +21,10 @@ type CopyButtonProps = {
   outputText: string;
   areaToSelect: React.MutableRefObject<HTMLTextAreaElement>;
 }
+
+type TransitionStyles = {
+  entering?: React.CSSProperties;
+  entered?: React.CSSProperties;
+  exiting?: React.CSSProperties;
+  exited?: React.CSSProperties;
+}

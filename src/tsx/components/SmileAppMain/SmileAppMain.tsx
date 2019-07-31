@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 
+import PageTitle from './PageTitle';
 import ConversionButton from './ConvesiontButton';
 import InputTextArea from './InputTextArea';
 import OutputTextArea from './OutputTextArea';
@@ -22,12 +23,13 @@ function SmileAppMain() {
   const [refOfOutputTextarea, setRefOfOutputTextarea] = useState<React.MutableRefObject<HTMLTextAreaElement>>();
 
   useEffect(() => {
-    const onResize = () => setHeight(determineHeight());
     window.addEventListener("resize", onResize);
     return () => {
       window.removeEventListener("resize", onResize);
     }
   }, []);
+
+  const onResize = () => setHeight(determineHeight());
   
   const onSetInputtedText = (s: string): void => {
     setInputtedText(s);
@@ -44,7 +46,7 @@ function SmileAppMain() {
   return (
     <main>
       <article className={styles.mainArticle} style={{height}}>
-        <h1 className={styles.pageTitle}>‪♪(๑ᴖ◡ᴖ๑)♪</h1>
+        <PageTitle />
         <InputTextArea onSetInputtedText={onSetInputtedText} inputtedText={inputtedText} />
         <ConversionButton onSetOutputText={onSetOutputText} inputtedText={inputtedText} />
         <OutputTextArea outputText={outputText} onsetRefOfOutputTextarea={onSetRefOfOutputTextarea} />

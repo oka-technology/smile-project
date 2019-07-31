@@ -3,6 +3,20 @@ import { useState, useEffect } from 'react';
 import { Transition } from 'react-transition-group';
 import * as styles from './CopyButton.scss';
 
+const duration: number = 300;
+const delay: number = 400;
+
+const defaultStyles: React.CSSProperties = {
+  transition: `opacity ${duration}ms ease-out ${delay}ms, transform ${duration}ms ease-out ${delay}ms`,
+  opacity: 0,
+  transform: 'translateY(20%)'
+}
+
+const transitionStyles: TransitionStyles = {
+  entering: { opacity: 1, transform: '' },
+  entered: { opacity: 1, transform: '' },
+}
+
 const isAppleiOS = (): boolean => {
   return /ipad|iphone/i.test(navigator.userAgent);
 }
@@ -17,7 +31,6 @@ const copy = (outputTextArea: React.MutableRefObject<HTMLTextAreaElement>): void
     document.execCommand('copy');
     outputTextArea.current.readOnly = true;
     window.alert('コピーしました‪♪(๑ᴖ◡ᴖ๑)♪');
-    console.log('ii');
 
   } else {
     outputTextArea.current.select();
@@ -27,9 +40,25 @@ const copy = (outputTextArea: React.MutableRefObject<HTMLTextAreaElement>): void
 }
 
 const CopyButton = (props: CopyButtonProps): JSX.Element => {
+  const [inProp, setInProp] = useState<boolean>(false);
+  useEffect(() => {
+    setInProp(true);
+  }, []);
   
   return (
-    <button className={styles.normal} type="button" onClick={() => {copy(props.areaToSelect)}}>‪♪(๑ᴖ◡ᴖ๑)♪コピー‪♪(๑ᴖ◡ᴖ๑)♪</button>
+    <Transition in={inProp} timeout={duration + delay}>
+      {state => (
+        <button
+          className={styles.normal}
+          type="button"
+          onClick={() => { copy(props.areaToSelect) }}
+          style={{
+            ...defaultStyles,
+            ...transitionStyles[state]
+          }}
+        >‪♪(๑ᴖ◡ᴖ๑)♪コピー‪♪(๑ᴖ◡ᴖ๑)♪</button>
+      )}
+    </Transition>
   )
 }
 
